@@ -1,6 +1,12 @@
 name: PR Labeler
 author: Lorenzo Portocarrero
 description: Label PR based on base branch
+
+inputs:
+  repo-token:
+    description: "Repo token"
+    required: true
+
 runs:
   using: "node12"
   main: "main.js"
