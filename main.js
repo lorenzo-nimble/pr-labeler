@@ -10,17 +10,17 @@ if (!pullRequest) {
 let baseBranch = pullRequest.base.ref;
 
 let repoToken = core.getInput("repo-token", { required: true });
-let octokit = new core.Github(repoToken);
+let octokit = new github.Github(repoToken);
 
 let context = { github };
 
 switch(baseBranch){
     case "master": {
-        octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
+        await octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
         break;
     }
     case "staging": {
-        octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['STG'] });
+        await octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['STG'] });
         break;
     }
 }
