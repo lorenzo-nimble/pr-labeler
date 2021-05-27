@@ -12,7 +12,7 @@ let baseBranch = pullRequest.base.ref;
 let repoToken = core.getInput("repo-token", { required: true });
 let octokit = github.getOctokit(repoToken);
 
-const context = { github };
+const { context } = github;
 
 switch(baseBranch){
     case "master": {
