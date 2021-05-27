@@ -16,11 +16,11 @@ const context = { github };
 
 switch(baseBranch){
     case "master": {
-        octokit.rest.issues.addLabels({ issue_number: pullRequest.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
+        octokit.rest.issues.addLabels({ issue_number: pullRequest.number, owner: context.payload.repository.owner.login, repo: context.payload.repository.name, labels: ['PROD'] });
         break;
     }
     case "staging": {
-        octokit.rest.issues.addLabels({ issue_number: pullRequest.number, owner: context.owner, repo: context.repo, labels: ['STG'] });
+        octokit.rest.issues.addLabels({ issue_number: pullRequest.number, owner: context.payload.repository.owner.login, repo: context.payload.repository.name, labels: ['STG'] });
         break;
     }
 }
