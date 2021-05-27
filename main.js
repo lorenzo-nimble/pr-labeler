@@ -1,18 +1,18 @@
-const core = require("@actions/core");
-const github = require("@actions/github");
+let core = require("@actions/core");
+let github = require("@actions/github");
 
-const pullRequest = github.context.payload.pull_request;
+let pullRequest = github.context.payload.pull_request;
 
 if (!pullRequest) {
     throw new Error("No pull request information found");
 }
 
-const baseBranch = pullRequest.base.ref;
+let baseBranch = pullRequest.base.ref;
 
-const repoToken = core.getInput("repo-token", { required: true });
-const octokit = github.getOctokit(repoToken);
+let repoToken = core.getInput("repo-token", { required: true });
+let octokit = github.getOctokit(repoToken);
 
-const context = { github };
+let context = { github };
 
 switch(baseBranch){
     case "master": {
