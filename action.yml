@@ -1,0 +1,6 @@
+name: PR Labeler
+author: Lorenzo Portocarrero
+description: Label PR based on base branch
+runs:
+  using: "node12"
+  main: "main.js"
