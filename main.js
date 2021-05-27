@@ -12,6 +12,8 @@ let baseBranch = pullRequest.base.ref;
 let repoToken = core.getInput("repo-token", { required: true });
 let octokit = github.getOctokit(repoToken);
 
+const context = { github };
+
 switch(baseBranch){
     case "master": {
         octokit.rest.issues.addLabels({ issue_number: pullRequest.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
