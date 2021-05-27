@@ -16,11 +16,11 @@ let context = { github };
 
 switch(baseBranch){
     case "master": {
-        await octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
+        octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['PROD'] });
         break;
     }
     case "staging": {
-        await octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['STG'] });
+        octokit.issues.addLabels({ issue_number: context.issue.number, owner: context.owner, repo: context.repo, labels: ['STG'] });
         break;
     }
 }
