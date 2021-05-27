@@ -10,7 +10,7 @@ if (!pullRequest) {
 let baseBranch = pullRequest.base.ref;
 
 let repoToken = core.getInput("repo-token", { required: true });
-let octokit = new github.Github(repoToken);
+let octokit = new core.Github(repoToken);
 
 let context = { github };
 
